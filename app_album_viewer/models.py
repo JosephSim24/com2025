@@ -11,7 +11,7 @@ def validate_format(value):
         raise ValidationError(_("InvalidFormat"))
 
 
-def 
+def h():
 
 
 class Album(models.Model):
