@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>All Our Albums - MyMusicMaestro</title>
+    </head>
+    <body>
+        <h1>All Our Albums</h1>
+        {% if albums %}
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for album in albums %}
+                        <tr>
+                            <td><img src="/{{album.cover}}" style="width:60px;height:auto;""></td>
+                            <td><a href="/app_album_viewer/{{ album.id }}/">{{ album.title }}</a></td>
+                            <td>{{ album.artist }}</td>
+                            <td>£{{ album.price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>There are no albums in the database</p>
+        {% endif %}
+        <a href="/app_album_viewer/new/">Create a new album</a>
+    </body>
+</html>

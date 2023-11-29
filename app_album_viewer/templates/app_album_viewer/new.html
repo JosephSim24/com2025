@@ -1,0 +1,46 @@
+<form action="/app_album_viewer/new/" method="post">
+    {% csrf_token %}
+    <label for="artist">Artist: </label>
+    <br>
+
+    <input id="artist" type="text" name="Artist" value="">
+    <br>
+
+    <label for="title">Title: </label>
+    <br>
+
+    <input id="title" type="text" name="Title" value="">
+    <br>
+
+    <label for="price">Price: </label>
+    <br>
+
+    <input id="price" type="decimal" name="Price" value="">
+    <br>
+
+    <label for="cover">Cover: </label>
+    <br>
+
+    <input id="cover" type="text" name="Cover" value="media/">
+    <br>
+
+    <label for="description">Description: </label>
+    <br>
+    <textarea id="description" rows="5" cols="40" 
+    name="Description"></textarea>
+    <br>
+
+    <label for="format">Format: </label>
+    <br>
+
+    <input id="format" type="text" name="Format" value="">
+    <br>
+
+    <label for="release_date">Release Date: </label>
+    <br>
+
+    <input id="release_date" type="text" name="Release_Date" value="">
+    <br>
+
+    <input type="submit" value="OK">
+</form>

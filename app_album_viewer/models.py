@@ -41,7 +41,7 @@ class Album(models.Model):
                             null=True, blank=True)
 
     def __str__(self):
-        return self.title
+        return self.artist + self.title + self.price
 
 class Song(models.Model):
     title = models.CharField(max_length=200)
