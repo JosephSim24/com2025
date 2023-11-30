@@ -5,10 +5,9 @@
         <title>Album Viewer - MyMusicMaestro</title>
     </head>
     <body>
-        <h1>Album</h1>
-        <h2>{{album.cover}}</h2>
+        <h1> {{album.title}} </h1>
         <img src="/{{album.cover}}" style="width:300px;height:auto;">
-        <h2> {{album.artist}} - {{album.title}} </h2>
+        <h2> {{album.artist}} </h2>
         <h3>Format: {{album.format}}</h3>
         <h3>Price: £{{album.price}}</h3>
         <p><a href='/app_album_viewer/'>Back</a></p>

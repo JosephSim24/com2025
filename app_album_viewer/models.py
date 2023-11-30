@@ -1,7 +1,24 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 import datetime
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    display_name = models.CharField(max_length=50)
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
 
 
 def validate_release_date(value):
@@ -12,13 +29,14 @@ def validate_release_date(value):
                             + "-" + value.day]
 
 
-class Album(models.Model):
-    class Comment(models.Model):
-        user_display_name = models.CharField(max_length=50)
-        message = models.TextField()
+class Comment(models.Model):
+    user_display_name = models.CharField(max_length=50)
+    message = models.TextField()
 
+
+class Album(models.Model):
     class Format(models.TextChoices):
-        DD = "DD", _("DigitalDownload")
+        DD = "DIGDL", _("Digital Download")
         CD = "CD", _("CD")
         VINYL = "VINYL", _("Vinyl")
 
@@ -36,22 +54,19 @@ class Album(models.Model):
                             default=Format.DD)
     release_date = models.DateField(null=True,
                         validators=[validate_release_date])
-    #assocSongs
     comments = models.ForeignKey(Comment, on_delete=models.CASCADE,
                             null=True, blank=True)
 
     def __str__(self):
-        return self.artist + self.title + self.price
+        return self.artist + self.title
+
 
 class Song(models.Model):
     title = models.CharField(max_length=200)
     runtime = models.IntegerField()
+    albums = models.ManyToManyField(Album)
+
+
+class Tracklist(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
-
-
-#class User(models.Model):
-    #email = models.CharField(max_length=250)
-    #username = models.CharField(max_length=100)
-    #password = "password"
-    #user_display_name = models.CharField(max_length=100)
-    #message = models.CharField(max_length=1000)
+    songs = models.ForeignKey(Song, on_delete=models.CASCADE)
