@@ -36,3 +36,6 @@ def new_album(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         return render(request, 'app_album_viewer/new.html', {})
+
+def test(request):
+    return render(request, 'app_album_viewer/test.html', {})
