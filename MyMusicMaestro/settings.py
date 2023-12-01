@@ -118,8 +118,8 @@ LOCALE_PATHS = [BASE_DIR / 'locale',
 # Static files config.
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    BASE_DIR / 'app_album_viewer/static',
-    BASE_DIR / 'app_pages/static',
+    #BASE_DIR / 'app_album_viewer/static',
+    #BASE_DIR / 'app_pages/static',
 ]
 STATIC_URL = 'static/'
 
