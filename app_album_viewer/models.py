@@ -3,7 +3,7 @@ from django.utils.translation import gettext as _
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+from django.utils import timezone
 
 
 class Album(models.Model):
@@ -24,11 +24,10 @@ class Album(models.Model):
     format = models.CharField(max_length=16,
                             choices=Format.choices, 
                             default=Format.DD)
-    release_date = models.DateField(null=True)
+    release_date = models.DateField(default=models.DateField(auto_now_add=True))
 
     def save(self, *args, **kwargs):
         from datetime import timedelta
-        from django.utils import timezone
         import pytz
 
         if self.release_date > timezone.now().date() + timedelta(days=365):
