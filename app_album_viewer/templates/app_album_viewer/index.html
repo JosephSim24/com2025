@@ -1,18 +1,16 @@
 {% extends "base.html" %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        {% block title %}
+<head>
+    {% block title %}
         <title>View Our Albums - MyMusicMaestro</title>
-        {% endblock title %}
-    </head>
-    {% block content %}
+    {% endblock title %}
+</head>
+{% block content %}
     <style>
-        td, h1, a {margin-left: 30px;}
+        img, td, h1 {margin-left: 30px;}
+        td, th {font-size: 20px;}
     </style>
     <body>
-        <h1>All Our Albums</h1>
+        <h1>Our Albums</h1>
         {% if albums %}
             <table>
                 <thead>
@@ -26,7 +24,7 @@
                 <tbody>
                     {% for album in albums %}
                         <tr>
-                            <td><img src="/{{album.cover}}" style="width:100px;height:auto;""></td>
+                            <td><img src="/{{album.cover}}" style="width:140px;height:auto;""></td>
                             <td><a href="/albums/{{ album.id }}/">{{ album.title }}</a></td>
                             <td>{{ album.artist }}</td>
                             <td>{{ album.comment_count }}</td>
@@ -38,8 +36,7 @@
             <p>There are no albums in the database</p>
         {% endif %}
         <br>
-        <a href="/albums/new/">Create a new album</a>
-        <br>
+        <a href="/albums/new/" style="font-size:20px; margin-left: 30px;">Create a new album</a>
     </body>
 </html>
 {% endblock content %}

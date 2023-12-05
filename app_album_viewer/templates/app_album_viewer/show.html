@@ -1,17 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
     <head>
-        <meta charset="UTF-8">
+        {% block title %}
         <title>Album Viewer - MyMusicMaestro</title>
+        {% endblock title %}
     </head>
+    {% block content %}
+    <style>
+        h1, h2, h3, h4, img, p {margin-left: 30px;}
+        .container {
+            display: flex;
+            align-items: center;
+        }
+        .container img {
+            max-width: 100%;
+            margin-right: 20px;
+        }
+        .text-on-right {
+            flex: 1;
+        }
+    </style>
     <body>
+        <p><a href='/albums/'>Back</a></p>
         <h1> {{album.title}} </h1>
-        <img src="/{{album.cover}}" style="width:300px;height:auto;">
-        <h2> {{album.artist}} </h2>
+        <div class="container">
+            <img src="/{{album.cover}}" style="width:400px;height:auto;">
+            <div class="text-on-right">
+                <h3>Songs:</h3>
+                {% for song in songs %}
+                    <h4> {{ song.title }} - {{ song.runtime }}s</h4>
+                {% endfor %}
+            </div>
+        </div>
+        <h3> by {{album.artist}} </h3>
         <h3>Format: {{album.format}}</h3>
         <h3>Price: £{{album.price}}</h3>
         <h3>Release Date: {{album.release_date}}</h3>
         <h4>Descripton: {{album.description}}</h4>
+        <br><br>
+        <h2>Comments</h2>
+        <br>
+        {% for comment in comments %}
+            <h4>{{ comment.user.display_name }}</h4>
+            <p>{{ comment.message }}</p>
+            <br>
+        {% endfor %}
         <p><a href='/albums/'>Back</a></p>
     </body>
+    {% endblock content %}
 </html>

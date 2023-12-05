@@ -1,18 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Make a New Album - MyMusicMaestro</title>
+{% endblock title %}
+
+{% block content %}
+<style>
+    label, input, textarea, h1, h4, p {margin-left: 30px}
+    .required {color:red}
+</style>
 <form action="/albums/new/" method="post">
+    <p><a href='/albums/'>Back</a></p>
+    <h1>New Album</h1>
+    <h4>(<span class="required">*</span> is required)</h4>
     {% csrf_token %}
-    <label for="artist">Artist: </label>
+    
+    <label for="artist">Artist<span class="required">*</span>: </label>
     <br>
 
     <input id="artist" type="text" name="Artist" value="">
     <br>
 
-    <label for="title">Title: </label>
+    <label for="title">Title<span class="required">*</span>: </label>
     <br>
 
     <input id="title" type="text" name="Title" value="">
     <br>
 
-    <label for="price">Price: </label>
+    <label for="price">Price<span class="required">*</span>: </label>
     <br>
 
     <input id="price" type="decimal" name="Price" value="">
@@ -21,26 +36,33 @@
     <label for="cover">Cover: </label>
     <br>
 
-    <input id="cover" type="text" name="Cover" value="media/">
+    <input id="cover" type="text" name="Cover" value="">
     <br>
 
     <label for="description">Description: </label>
     <br>
-    <textarea id="description" rows="5" cols="40" 
+    <textarea id="description" rows="3" cols="20" 
     name="Description"></textarea>
     <br>
 
     <label for="format">Format: </label>
-    <br>
+        <br>
+        <select name="format" id="format" style="margin-left:30px">
+            <option value="default"></option>
+            <option value="Digital Download">Digital Download</option>
+            <option value="CD">CD</option>
+            <option value="Vinyl">Vinyl</option>
+        </select>
+        <br>
 
-    <input id="format" type="text" name="Format" value="">
-    <br>
-
-    <label for="release_date">Release Date: </label>
+    <label for="release_date">Release Date: (YYYY-MM-DD)</label>
     <br>
 
     <input id="release_date" type="text" name="Release_Date" value="">
     <br>
+    <br>
 
     <input type="submit" value="OK">
+    <br><br>
 </form>
+{% endblock content %}
