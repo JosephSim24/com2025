@@ -8,6 +8,4 @@ urlpatterns = [
     path('<int:album_id>/', views.show_album, name='show_album'),
     # ex: /albums/new/
     path('new/', views.new_album, name='new_album'),
-    # ex: /albums/test/
-    path('test', views.test, name='test'),
 ]

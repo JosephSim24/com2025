@@ -1,0 +1,11 @@
+#: app_album_viewer/models.py:11
+msgid "Digital Download"
+msgstr ""
+
+#: app_album_viewer/models.py:12
+msgid "CD"
+msgstr ""
+
+#: app_album_viewer/models.py:13
+msgid "Vinyl"
+msgstr ""
