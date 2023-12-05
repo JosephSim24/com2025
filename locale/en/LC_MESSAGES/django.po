@@ -9,3 +9,69 @@ msgstr "%(user)s thinks you'll enjoy this album. It's called %(album)s."
 
 msgid "MMMMotto"
 msgstr "All your music in one place"
+
+msgid "Home"
+msgstr "HOME"
+
+msgid "AlbumsCap"
+msgstr "ALBUMS"
+
+msgid "About"
+msgstr "ABOUT"
+
+msgid "Contact"
+msgstr "CONTACT"
+
+msgid "MMMParagraph"
+msgstr "MyMusicMaestro strives to become the most convenient place to buy your favourite music. More about us"
+
+msgid "ParagraphHere"
+msgstr "here"
+
+msgid "PoweredBy"
+msgstr "Powered By"
+
+msgid "PopularTags"
+msgstr "POPULAR TAGS"
+
+msgid "Music"
+msgstr "Music"
+
+msgid "Rock"
+msgstr "Rock"
+
+msgid "Love"
+msgstr "Love"
+
+msgid "Art"
+msgstr "Art"
+
+msgid "Musica"
+msgstr "Musica"
+
+msgid "Songs"
+msgstr "Songs"
+
+msgid "Pop"
+msgstr "Pop"
+
+msgid "HipHop"
+msgstr "HipHop"
+
+msgid "Musician"
+msgstr "Musician"
+
+msgid "Singer"
+msgstr "Singer"
+
+msgid "Albums"
+msgstr "Albums"
+
+msgid "R&B"
+msgstr "R&B"
+
+msgid "Rap"
+msgstr "Rap"
+
+msgid "Artist"
+msgstr "Artist"

@@ -49,10 +49,10 @@
     <p class="w3-text-grey">{% trans 'MMMMotto' %}</p>
   </div>
   <div class="w3-bar-block">
-    <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-padding"><i class="fa fa-home fa-fw w3-margin-right"></i>HOME</a> 
-    <a href="/albums/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>ALBUMS</a> 
-    <a href="/about/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
-    <a href="/contact/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
+    <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-padding"><i class="fa fa-home fa-fw w3-margin-right"></i>{% trans 'Home' %}</a> 
+    <a href="/albums/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>{% trans 'AlbumsCap' %}</a> 
+    <a href="/about/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>{% trans 'About' %}</a> 
+    <a href="/contact/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>{% trans 'Contact' %}</a>
   </div>
   <div class="w3-panel w3-large">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -89,25 +89,25 @@
         <div class="w3-row-padding">
         <div class="w3-third">
             <h3>MyMusicMaestro</h3>
-            <p>MyMusicMaestro strives to become the most convenient place to buy your favourite music. More about us <a href="/about/">here</a></a></p>
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+            <p>{% trans 'MMMParagraph' %} <a href="/about/">{% trans 'ParagraphHere' %}</a></a></p>
+            <p>{% trans 'PoweredBy' %} <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
         </div>
 
     <div class="w3-third">
-      <h3>POPULAR TAGS</h3>
+      <h3>{% trans 'PopularTags' %}</h3>
       <p>
-        <span class="w3-tag w3-black w3-margin-bottom">Music</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Songs</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Albums</span>
-        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Rock</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Pop</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">R&B</span>
-        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Love</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">HipHop</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Rap</span>
-        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Art</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Musician</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Artist</span>
-        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Musica</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Singer</span>
+        <span class="w3-tag w3-black w3-margin-bottom">{% trans 'Music' %}</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Songs' %}</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Albums' %}</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Rock' %}</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Pop' %}</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'R&B' %}</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Love' %}</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'HipHop' %}</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Rap' %}</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Art' %}</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Musician' %}</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Artist' %}</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Musica' %}</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">{% trans 'Singer' %}</span>
       </p>
     </div>
   </div>
   </footer>
   {% endblock footer %}
   
-  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+  <div class="w3-black w3-center w3-padding-24">{% trans 'PoweredBy' %} <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
 
 <!-- End page content -->
 </div>

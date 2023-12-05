@@ -13,6 +13,9 @@ msgstr "Number of Comments"
 msgid "IndexNoAlbums"
 msgstr "There are no albums in the database"
 
+msgid "IndexArtist"
+msgstr "Artist"
+
 msgid "CreateNew"
 msgstr "Create a new album"
 

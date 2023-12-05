@@ -68,25 +68,26 @@ class Command(BaseCommand):
         Profile.objects.all().delete()
 
         user_data = [
-            {"username": "AnnaB39", "email": "AnnaB39@example.com"},
-            {"username": "jc2", "email": "jc2@example.com"},
-            {"username": "jonManco", "email": "jonManco@example.com"},
-            {"username": "someguy", "email": "someguy@example.com"}
+            {"username": "anna.baston", "email": "AnnaB39@example.com", "display_name": "AnnaB39"},
+            {"username": "james.cole", "email": "jc2@example.com", "display_name": "jc2"},
+            {"username": "jon.manco", "email": "jonManco@example.com", "display_name": "jonManco"},
+            {"username": "someguy", "email": "someguy@example.com", "display_name": "someguy"}
         ]
         password = "password"
 
         for data in user_data:
             username = data['username']
             email = data['email']
+            display_name = data['display_name']
             
             user, created = User.objects.get_or_create(username=username, email=email)
             if created:
                 user.set_password(password)
                 user.save()
             
-            profile, created = Profile.objects.get_or_create(user=user, defaults={'display_name': username})
+            profile, created = Profile.objects.get_or_create(user=user, defaults={'display_name': display_name})
             if not created:
-                profile.display_name = username
+                profile.display_name = display_name
                 profile.save()
 
         self.stdout.write('Profiles done')
