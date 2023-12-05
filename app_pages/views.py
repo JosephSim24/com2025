@@ -9,3 +9,6 @@ def contact_page(request):
 
 def about_page(request):
     return render(request, 'app_pages/about_page.html', {})
+
+def account_page(request):
+    return render(request, 'app_pages/account_page.html', {})

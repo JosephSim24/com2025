@@ -1,11 +1,12 @@
 from django.core.management.base import BaseCommand
+from django.contrib.auth.models import User
 from app_album_viewer.models import *
 from datetime import date
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        #Album.objects.all().delete()
+        Album.objects.all().delete()
 
         a1=Album(title="Dripping Stereo (Deluxe Edition)", artist="Jonathan Rocs", cover="media/dripping-stereo.png", description="A very unique album from JRocs!", price=5, format="Vinyl", release_date=date(2023, 6, 6))
         a1.save() 
@@ -29,97 +30,97 @@ class Command(BaseCommand):
 
         self.stdout.write('Albums done')
 
-        #Song.objects.all().delete()
+        Song.objects.all().delete()
 
         s=Song.objects.create(title="its too loud", runtime=294)
         s.albums.add(a1)
-        
 
-        #s=Song(title="oh actually its fine", runtime=231)
-        #s.save()
-        #s.albums.set([a1])
-        #s.save()
+        s=Song.objects.create(title="oh actually its fine", runtime=231)
+        s.albums.add(a1)
 
-        #s=Song(title="nope too loud", runtime=127)
-        #s.save()
-        #s.albums.set([a1])
-        #s.save()
+        s=Song.objects.create(title="nope too loud", runtime=127)
+        s.albums.add(a1)
 
-        #s=Song(title="Running without a care at 4am", runtime=1000)
-        #s.save()
-        #s.albums.set([a2])
-        #s.save()
+        s=Song.objects.create(title="Running without a care at 4am", runtime=1000)
+        s.albums.add(a2)
 
-        #s=Song(title="Snoozing all day", runtime=1505)
-        #s.save()
-        #s.albums.set([a2])
-        #s.save()
+        s=Song.objects.create(title="Snoozing all day", runtime=1505)
+        s.albums.add(a2)
 
-        #s=Song(title="My bowl is empty (again) (sad version)", runtime=340)
-        #s.save()
-        #s.albums.set([a2])
-        #s.save()
+        s=Song.objects.create(title="My bowl is empty (again) (sad version)", runtime=340)
+        s.albums.add(a2)
 
-        #s=Song(title="The dog is back", runtime=134)
-        #s.save()
-        #s.albums.set([a2])
-        #s.save()
+        s=Song.objects.create(title="The dog is back", runtime=134)
+        s.albums.add(a2)
 
-        #s=Song(title="BRICKS ARE FALLING", runtime=180)
-        #s.save()
-        #s.albums.set([a3, a4])
-        #s.save()
+        s=Song.objects.create(title="BRICKS ARE FALLING", runtime=180)
+        s.albums.add(a3, a4)
 
-        #s=Song(title="THE HEARTH AND HOME", runtime=182)
-        #s.save()
-        #s.albums.set([a3, a4, a7])
-        #s.save()
+        s=Song.objects.create(title="THE HEARTH AND HOME", runtime=182)
+        s.albums.add(a3, a4, a7)
 
-        #s=Song(title="LEAKY ROOF", runtime=189)
-        #s.save()
-        #s.albums.set([a3, a4, a7])
-        #s.save()
+        s=Song.objects.create(title="LEAKY ROOF", runtime=189)
+        s.albums.add(a3, a4, a7)
 
         self.stdout.write('Songs done')
 
-        #Profile.objects.all().delete()
+        User.objects.all().delete()
+        Profile.objects.all().delete()
 
-        p1=Profile(display_name="AnnaB39", user=User(username="AnnaBothrick", password="password"))
-        p1.save()
-        p2=Profile(display_name="jc2", user=User(username="JamesCollins", password="password"))
-        p2.save()
-        p3=Profile(display_name="jonManco", user=User(username="JonManco", password="password"))
-        p3.save()
-        p4=Profile(display_name="someguy", user=User(username="JohnSmith", password="password"))
-        p4.save()
+        user_data = [
+            {"username": "AnnaB39", "email": "AnnaB39@example.com"},
+            {"username": "jc2", "email": "jc2@example.com"},
+            {"username": "jonManco", "email": "jonManco@example.com"},
+            {"username": "someguy", "email": "someguy@example.com"}
+        ]
+        password = "password"
+
+        for data in user_data:
+            username = data['username']
+            email = data['email']
+            
+            user, created = User.objects.get_or_create(username=username, email=email)
+            if created:
+                user.set_password(password)
+                user.save()
+            
+            profile, created = Profile.objects.get_or_create(user=user, defaults={'display_name': username})
+            if not created:
+                profile.display_name = username
+                profile.save()
 
         self.stdout.write('Profiles done')
 
-        #Comment.objects.all().delete()
+        Comment.objects.all().delete()
 
-        c1=Comment(user=p1, message="Not a fan to be honest", album=a1)
-        c2=Comment(user=p1, message="Actually, it's pretty good", album=a1)
-        c3=Comment(user=p2, message="Best album yet!!!!", album=a1)
+        u1=Profile.objects.get(display_name="AnnaB39")
+        u2=Profile.objects.get(display_name="jc2")
+        u3=Profile.objects.get(display_name="jonManco")
+        u4=Profile.objects.get(display_name="someguy")
+
+        c1=Comment(user=u1, message="Not a fan to be honest", album=a1)
+        c2=Comment(user=u1, message="Actually, it's pretty good", album=a1)
+        c3=Comment(user=u2, message="Best album yet!!!!", album=a1)
         c1.save()
         c2.save()
         c3.save()
 
-        c4=Comment(user=p3, message="My cats and I love it", album=a2)
-        c5=Comment(user=p1, message="Is this for cats or humans?? Kind of liking it", album=a2)
-        c6=Comment(user=p2, message="Far too expensive :-(", album=a2)
+        c4=Comment(user=u3, message="My cats and I love it", album=a2)
+        c5=Comment(user=u1, message="Is this for cats or humans?? Kind of liking it", album=a2)
+        c6=Comment(user=u2, message="Far too expensive :-(", album=a2)
         c4.save()
         c5.save()
         c6.save()
 
-        c7=Comment(user=p3, message="CD isn't worth it, go for vinyl one", album=a3)
-        c8=Comment(user=p2, message="Arrived scratched :'-(", album=a3)
+        c7=Comment(user=u3, message="CD isn't worth it, go for vinyl one", album=a3)
+        c8=Comment(user=u2, message="Arrived scratched :'-(", album=a3)
         c7.save()
         c8.save()
 
-        c9=Comment(user=p3, message="Vinyl is the best version!", album=a4)
+        c9=Comment(user=u3, message="Vinyl is the best version!", album=a4)
         c9.save()
 
-        c10=Comment(user=p4, message="first", album=a5)
+        c10=Comment(user=u4, message="first", album=a5)
         c10.save()
 
         self.stdout.write('Comments done')

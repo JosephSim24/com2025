@@ -41,7 +41,7 @@ class Album(models.Model):
 class Song(models.Model):
     title = models.CharField(max_length=200)
     runtime = models.PositiveIntegerField()
-    albums = models.ManyToManyField(Album)
+    albums = models.ManyToManyField(Album, related_name='songs')
 
     def __str__(self):
         return self.title

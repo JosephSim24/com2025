@@ -1,36 +1,129 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html>
+<head>
+{% block title %}
+<title>MyMusicMaestro</title>
+{% endblock title %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    header {
+        background-image: url('media/background-image.png');
+        background-size: cover;
+        height: 200px;
+        opacity: 90%;
+    }
+    .w3-main {
+        transition: margin-left 0.5s;
+    }
+    @media screen and (max-width: 60px) {
+        .w3-sidebar {
+            width:100%;
+            height: 100%;
+            position: fixed;
+            z-index: 1;
+            display: none;
+        }
+        .w3-main {
+            margin-left: 0;
+        }
+        .w3-sidebar.w3-collapse {
+            display: none;
+        }
+    }
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script type="text/javascript" src="{% static 'js/jquery-3.7.1.js' %}"></script>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <img src="/media/default-cover.png" style="width:45%;" class="w3-round"><br><br>
+    <h4><b>MyMusicMaestro</b></h4>
+    <p class="w3-text-grey">All your music in one place</p>
+  </div>
+  <div class="w3-bar-block">
+    <a href="/albums/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>ALBUMS</a> 
+    <a href="/about/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
+    <a href="/contact/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
+  </div>
+  <div class="w3-panel w3-large">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</nav>
 
+  <!-- Header -->
+  {% block header %}
+  <header id="MyMusicMaestro">
+    <a href="/"><img src="/media/home_logo.png" style="width:65px; opacity:100%;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <h1 style="text-align:center; font-weight:900; font-size:50px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">MyMusicMaestro</h1>
+    </div>
+  </header>
+  {% endblock header %}
 
-        {% block app_includes %}
-        {% endblock app_includes %}
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
 
-        {% block title %}
-            <title>MyMusicMaestro</title>
-        {% endblock title %}
-    </head>
+  {% block content %}
 
-    <body>
-        {% block header %}
-            <p>This is my header</p>
-        {% endblock header %}
+  {% endblock content %}
 
-        {% block content %}
-        {% endblock content %}
+  <!-- Footer -->
+  {% block footer %}
+    <footer class="w3-container w3-padding-32 w3-dark-grey">
+        <div class="w3-row-padding">
+        <div class="w3-third">
+            <h3>MyMusicMaestro</h3>
+            <p>MyMusicMaestro strives to become the most convenient place to buy music of any type.</p>
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </div>
 
-        {% block footer %}
-            <p>This is my footer</p>
-        {% endblock footer %}
+    <div class="w3-third">
+      <h3>POPULAR TAGS</h3>
+      <p>
+        <span class="w3-tag w3-black w3-margin-bottom">Music</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Songs</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Albums</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Rock</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Pop</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">R&B</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Love</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">HipHop</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Rap</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Art</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Musician</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Artist</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Musica</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Singer</span>
+      </p>
+    </div>
+  </div>
+  </footer>
+  {% endblock footer %}
+  
+  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
 
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- End page content -->
+</div>
 
-    </body>
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+</body>
 </html>
