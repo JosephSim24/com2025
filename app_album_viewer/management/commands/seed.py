@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 from app_album_viewer.models import *
 from datetime import date
+from django.contrib.auth.hashers import make_password
 
 class Command(BaseCommand):
 
@@ -82,7 +83,7 @@ class Command(BaseCommand):
             
             user, created = User.objects.get_or_create(username=username, email=email)
             if created:
-                user.set_password(password)
+                user.password = make_password(password)
                 user.save()
             
             profile, created = Profile.objects.get_or_create(user=user, defaults={'display_name': display_name})

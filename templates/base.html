@@ -19,7 +19,7 @@
         opacity: 90%;
     }
     
-    @media screen and (max-width: 60px) {
+    @media screen and (max-width: 600px) {
         .w3-sidebar {
             width:100%;
             height: 100%;
@@ -33,6 +33,25 @@
         .w3-sidebar.w3-collapse {
             display: none;
         }
+    }
+
+    * {box-sizing:border-box;}
+    .topnav a {
+      overflow: hidden;
+      background-color: grey;
+    }
+    .topnav a {
+      float: right;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 18px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
     }
 </style>
 </head>
@@ -67,9 +86,12 @@
   <!-- Header -->
   {% block header %}
   <header id="MyMusicMaestro">
-    <a href="/"><img src="/media/home_logo.png" style="width:65px; opacity:100%;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
-    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
-    <h1 style="text-align:center; font-weight:900; font-size:50px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">MyMusicMaestro</h1>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/account/">Account</a>
+      <a href="/account/login/">Login</a>
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" style="float:left;" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+      <h1 style="text-align:center; font-weight:900; font-size:50px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">MyMusicMaestro</h1>
     </div>
   </header>
   {% endblock header %}

@@ -63,3 +63,6 @@ msgstr "by"
 
 msgid "Comments"
 msgstr "Comments"
+
+msgid "RecommendTitle"
+msgstr "Recommend an Album"

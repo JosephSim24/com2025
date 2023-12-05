@@ -6,5 +6,12 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>This is your account</h1>
+{% if user.is_authenticated %}
+    <h4>Hi {{ user.username }}</h4>
+    <br>
+    <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <h4>You are not logged in</h4>
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
 {% endblock content %}

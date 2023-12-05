@@ -42,6 +42,3 @@ msgstr "Send Message"
 
 msgid "AccountTitle"
 msgstr "My Account"
-
-msgid "RecommendTitle"
-msgstr "Recommend a Friend"

@@ -23,6 +23,10 @@
     </style>
     <body>
         <p><a href='/albums/'>{% trans 'Back' %}</a></p>
+
+        {% if user.is_authenticated %}
+            <h3>Like this album? Click <a href="/recommend-a-friend?album={{ album.id }}">here</a> to recommend this to a friend</h3>
+        {% endif %}
         <h1> {{album.title}} </h1>
         <div class="container">
             <img src="/{{album.cover}}" style="width:400px;height:auto;">
