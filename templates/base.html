@@ -12,14 +12,12 @@
 <style>
     body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     header {
-        background-image: url('media/background-image.png');
+        background-image: url('/media/background-image.png');
         background-size: cover;
         height: 200px;
         opacity: 90%;
     }
-    .w3-main {
-        transition: margin-left 0.5s;
-    }
+    
     @media screen and (max-width: 60px) {
         .w3-sidebar {
             width:100%;
@@ -50,7 +48,8 @@
     <p class="w3-text-grey">All your music in one place</p>
   </div>
   <div class="w3-bar-block">
-    <a href="/albums/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>ALBUMS</a> 
+    <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-padding"><i class="fa fa-home fa-fw w3-margin-right"></i>HOME</a> 
+    <a href="/albums/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>ALBUMS</a> 
     <a href="/about/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
     <a href="/contact/" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
   </div>
@@ -89,7 +88,7 @@
         <div class="w3-row-padding">
         <div class="w3-third">
             <h3>MyMusicMaestro</h3>
-            <p>MyMusicMaestro strives to become the most convenient place to buy music of any type.</p>
+            <p>MyMusicMaestro strives to become the most convenient place to buy your favourite music. More about us <a href="/about/">here</a></a></p>
             <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
         </div>
 

@@ -2,14 +2,17 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .models import Album
 from django.shortcuts import get_object_or_404
+from django.db.models import Count
 
 def index_albums(request):
-    all_albums = Album.objects.order_by('title') 
-    #retreive all albums from the db
-    context = {'albums': all_albums} 
+    #retreive all albums from the db and annotate each with a comment count
+    all_albums = Album.objects.annotate(comment_count=Count('comments')).order_by('title')
+
     #create a dictionary to store this data
-    return render(request, 'app_album_viewer/index.html', context)
+    context = {'albums': all_albums} 
+
     #render the page
+    return render(request, 'app_album_viewer/index.html', context)
 
 def show_album(request, album_id):
     album = get_object_or_404(Album, pk=album_id)

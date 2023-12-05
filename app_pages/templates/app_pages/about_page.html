@@ -1,8 +1,19 @@
-<html>
-    <head>
-        <title>About MyMusicMaestro</title>
-    </head>
-    <body>
-        <h1>About Us</h1>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}
+    <title>About Us - MyMusicMaestro</title>
+{% endblock title %}
+
+{% block content %}
+<style>
+    h1, h4 {margin-left: 30px;}
+</style>
+
+    <br>
+    <h1>About MyMusicMaestro</h1>
+    <br>
+    <h4>MyMusicMaestro aims to make finding new or old music as easy as possible. We aim to be the most convenient music cataloguing site out there. We manage albums, songs and you can even comment on your favourite albums to let others know your thoughts!</h4>
+    <h4>We thank you greatly for taking the time to read this and using our website, we hope you find what you're looking for and don't be afraid to reach out to us at <a href="/contact/">mymusicmaestro@example.com</a></h4>
+    <br>
+
+{% endblock content %}

@@ -67,5 +67,6 @@ def save_user_profile(sender, instance, **kwargs):
 class Comment(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     message = models.TextField()
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE,
+                            related_name='comments')
 
