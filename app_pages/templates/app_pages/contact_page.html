@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-    <title>Contact Us - MyMusicMaestro</title>
+    <title>{% trans 'ContactTitle' %} - MyMusicMaestro</title>
 {% endblock title %}
 
 {% block content %}
 
 <!-- Contact Section -->
 <div class="w3-container w3-padding-large w3-grey">
-    <h4 id="contact"><b>Contact Us</b></h4>
+    <h4 id="contact"><b>{% trans 'ContactTitle' %}</b></h4>
     <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px">
       <div class="w3-third w3-dark-grey">
         <p><i class="fa fa-envelope w3-xxlarge w3-text-light-grey"></i></p>
@@ -26,18 +27,18 @@
     <hr class="w3-opacity">
     <form action="/action_page.php" target="_blank">
       <div class="w3-section">
-        <label>Name</label>
+        <label>{% trans 'ContactName' %}</label>
         <input class="w3-input w3-border" type="text" name="Name" required>
       </div>
       <div class="w3-section">
-        <label>Email</label>
+        <label>{% trans 'ContactEmail' %}</label>
         <input class="w3-input w3-border" type="text" name="Email" required>
       </div>
       <div class="w3-section">
-        <label>Message</label>
+        <label>{% trans 'ContactMessage' %}</label>
         <input class="w3-input w3-border" type="text" name="Message" required>
       </div>
-      <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
+      <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>{% trans 'ContactSend' %}</button>
     </form>
   </div>
 

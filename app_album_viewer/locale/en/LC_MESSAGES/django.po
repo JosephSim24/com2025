@@ -1,11 +1,62 @@
-#: app_album_viewer/models.py:11
-msgid "Digital Download"
-msgstr ""
+msgid "IndexTitle"
+msgstr "View Our Albums"
 
-#: app_album_viewer/models.py:12
+msgid "Title"
+msgstr "Title"
+
+msgid "Artist"
+msgstr "Artist"
+
+msgid "IndexComments"
+msgstr "Number of Comments"
+
+msgid "IndexNoAlbums"
+msgstr "There are no albums in the database"
+
+msgid "CreateNew"
+msgstr "Create a new album"
+
+msgid "NewAlbumTitle"
+msgstr "Make a New Album"
+
+msgid "NewAlbum"
+msgstr "New Album"
+
+msgid "IsRequired"
+msgstr "is required"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "DigitalDownload"
+msgstr "Digital Download"
+
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
-#: app_album_viewer/models.py:13
 msgid "Vinyl"
-msgstr ""
+msgstr "Vinyl"
+
+msgid "Price"
+msgstr "Price"
+
+msgid "Cover"
+msgstr "Cover"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Format"
+msgstr "Format"
+
+msgid "ReleaseDate"
+msgstr "Release Date"
+
+msgid "Songs"
+msgstr "Songs"
+
+msgid "By"
+msgstr "by"
+
+msgid "Comments"
+msgstr "Comments"

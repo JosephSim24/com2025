@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+{% load i18n %}
+
     <head>
         {% block title %}
-        <title>Album Viewer - MyMusicMaestro</title>
+        <title>{{ album.title }} - MyMusicMaestro</title>
         {% endblock title %}
     </head>
     {% block content %}
@@ -20,31 +22,31 @@
         }
     </style>
     <body>
-        <p><a href='/albums/'>Back</a></p>
+        <p><a href='/albums/'>{% trans 'Back' %}</a></p>
         <h1> {{album.title}} </h1>
         <div class="container">
             <img src="/{{album.cover}}" style="width:400px;height:auto;">
             <div class="text-on-right">
-                <h3>Songs:</h3>
+                <h3>{% trans 'Songs' %}:</h3>
                 {% for song in songs %}
                     <h4> {{ song.title }} - {{ song.runtime }}s</h4>
                 {% endfor %}
             </div>
         </div>
-        <h3> by {{album.artist}} </h3>
-        <h3>Format: {{album.format}}</h3>
-        <h3>Price: £{{album.price}}</h3>
-        <h3>Release Date: {{album.release_date}}</h3>
-        <h4>Descripton: {{album.description}}</h4>
+        <h3> {% trans 'By' %} {{album.artist}} </h3>
+        <h3>{% trans 'Format' %}: {{album.format}}</h3>
+        <h3>{% trans 'Price' %}: £{{album.price}}</h3>
+        <h3>{% trans 'ReleaseDate' %}: {{album.release_date}}</h3>
+        <h4>{% trans 'Description' %}: {{album.description}}</h4>
         <br><br>
-        <h2>Comments</h2>
+        <h2>{% trans 'Comments' %}</h2>
         <br>
         {% for comment in comments %}
             <h4>{{ comment.user.display_name }}</h4>
             <p>{{ comment.message }}</p>
             <br>
         {% endfor %}
-        <p><a href='/albums/'>Back</a></p>
+        <p><a href='/albums/'>{% trans 'Back' %}</a></p>
     </body>
     {% endblock content %}
 </html>

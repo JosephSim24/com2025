@@ -1,0 +1,47 @@
+msgid "HomeTitle"
+msgstr "Home"
+
+msgid "WelcomeMsg"
+msgstr "Welcome to"
+
+msgid "WelcomeMsg2"
+msgstr "is used to catalogue all your favourite albums."
+
+msgid "HomeAlbums"
+msgstr "See the albums that we have"
+
+msgid "HomeQuestions1"
+msgstr "If you have any questions feel free to"
+
+msgid "HomeQuestions2"
+msgstr "contact us"
+
+msgid "AboutTitle"
+msgstr "About Us"
+
+msgid "AboutMMM1"
+msgstr "aims to make finding new or old music as easy as possible. We aim to be the most convenient music cataloguing site out there. We manage albums, songs and you can even comment on your favourite albums to let others know your thoughts!"
+
+msgid "AboutMMM2"
+msgstr "We thank you greatly for taking the time to read this and using our website, we hope you find what you're looking for and don't be afraid to reach out to us at"
+
+msgid "ContactTitle"
+msgstr "Contact Us"
+
+msgid "ContactName"
+msgstr "Name"
+
+msgid "ContactEmail"
+msgstr "Email"
+
+msgid "ContactMessage"
+msgstr "Message"
+
+msgid "ContactSend"
+msgstr "Send Message"
+
+msgid "AccountTitle"
+msgstr "My Account"
+
+msgid "RecommendTitle"
+msgstr "Recommend a Friend"
