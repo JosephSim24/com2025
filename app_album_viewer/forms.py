@@ -1,7 +1,7 @@
 from django import forms
-from .models import Album
+from .models import Song
 
 class AddSongForm(forms.ModelForm):
     class Meta:
-        model = Album
-        fields = ['songs']
+        model = Song
+        fields = ['title', 'runtime']

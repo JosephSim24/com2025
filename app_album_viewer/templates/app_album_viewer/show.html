@@ -26,6 +26,7 @@
 
         {% if user.is_authenticated %}
             <h3>Like this album? Click <a href="/recommend-a-friend?album={{ album.id }}">here</a> to recommend this to a friend</h3>
+            <a href="{% url 'delete_view' album.id %}"><input type="button" value="Delete"></a>
         {% endif %}
         <h1> {{album.title}} </h1>
         <div class="container">

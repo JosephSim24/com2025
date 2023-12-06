@@ -11,10 +11,9 @@
 </style>
 <br>
 {% if user.is_authenticated %}
-    <h3 style="margin-left:30px">You are currently logged in as {{ user.username }}</h3>
-    <h4>Email: {{ user.email }}</h4>
+    <h2 style="margin-left:30px">You are currently logged in as: {{ user.username }}</h2>
     <br>
-    <h3 style="margin-left:30px">Your Comments:</h3>
+    <h2 style="margin-left:30px">Your Comments:</h2>
     {% for comment in comments %}
         {% if comment.user.user == user %}
             <h3 style="margin-left:30px">Album: {{ comment.album.title }}</h3>
