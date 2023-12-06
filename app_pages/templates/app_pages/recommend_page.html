@@ -6,7 +6,35 @@
 {% endblock title %}
 
 {% block content %}
+<style>
+    label, input, h1, p, button, textarea {
+        margin-left: 30px;
+    }
+    input, textarea {
+        width:43%;
+    }
+</style>
+    <form method="post" action="{% url 'recommend_form' %}">
+        <p><a href='/albums/{{album.id}}'>{% trans 'Back' %}</a></p>
+        <h1>Recommend {{album.title}}</h1>
+        {% csrf_token %}
+        <br>
+        <label for="to">Recipient:</label>
+        <br>
+        <input id="to" type="email" name="to" value="example@example.com">
+        <br><br>
 
-    <h2>Recommmend {{ album.title }} to a friend</h2>
+        <label for="title">Subject:</label>
+        <br>
+        <input id="title" type="text" name="title" value="{% trans 'RecommendEmailSubject' %}">
+        <br><br>
 
+        <label for="message">Message:</label>
+        <br>
+        <textarea id="message" rows="4" cols="20" name="message">{% trans 'RecommendEmailMessage' %} {{album.title}}</textarea>
+        <br><br>
+
+        <button type="submit">Submit</button>
+        <br><br>
+    </form>
 {% endblock content %}

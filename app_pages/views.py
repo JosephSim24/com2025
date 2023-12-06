@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from app_album_viewer.models import *
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
+from .forms import EmailForm
 
 
 def home_page(request):
@@ -39,3 +41,32 @@ def recommend_page(request):
     #renders the recommend a friend page for that album
     return render(request, 'app_pages/recommend_page.html', context)
 
+# def add_song(self, song_id):
+#     song = Song.objects.get(pk=song_id)
+#     song.albums.add(self)
+
+# def remove_song(self, song_id):
+#     song = Song.objects.get(pk=song_id)
+#     song.albums.remove(self)
+
+def email_form(request):
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            to_email = form.cleaned_data['to']
+            title = form.cleaned_data['title']
+            message = form.cleaned_data['message']
+
+            email_content = f"Title: {title}\nMessage: {message}"
+
+            send_mail('Subject', email_content, 'from@example.com', [to_email])
+
+            return redirect('success_page')
+    else:
+        form = EmailForm()
+
+    album_id = request.GET.get('album')
+    album = get_object_or_404(Album, pk=album_id)
+    context = {'form': form, 'album': album}
+
+    return render(request, 'app_pages/recommend_page.html', context)

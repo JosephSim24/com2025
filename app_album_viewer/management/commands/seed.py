@@ -72,7 +72,8 @@ class Command(BaseCommand):
             {"username": "anna.baston", "email": "AnnaB39@example.com", "display_name": "AnnaB39"},
             {"username": "james.cole", "email": "jc2@example.com", "display_name": "jc2"},
             {"username": "jon.manco", "email": "jonManco@example.com", "display_name": "jonManco"},
-            {"username": "someguy", "email": "someguy@example.com", "display_name": "someguy"}
+            {"username": "someguy", "email": "someguy@example.com", "display_name": "someguy"},
+            {"username": "user", "email": "user@example.com", "display_name": "user"}
         ]
         password = "password"
 

@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
+from .views import email_form
 
 urlpatterns = [
     #ex: /
@@ -12,7 +13,7 @@ urlpatterns = [
     #ex: /account/
     path('account/', views.account_page, name='account'),
     #ex: /recommend-a-friend?album=:id/
-    path('recommend-a-friend', views.recommend_page, name='recommend'),
+    path('recommend-a-friend', email_form, name='recommend_form'),
     #ex: /account/login/
     path('account/login/', LoginView.as_view(template_name='app_pages/login.html'), name='login'),
     #ex: /account/logout/

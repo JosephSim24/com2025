@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+class EmailForm(models.Model):
+    to = models.EmailField()
+    title = models.CharField(max_length=255)
+    message = models.TextField()
