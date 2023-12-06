@@ -34,6 +34,15 @@ class Album(models.Model):
             self.release_date = self.release_date.replace(month = 1)
         super().save(*args, **kwargs)
 
+    def add_song(self, song):
+        self.songs.add(song)
+
+    def remove_song(self, song):
+        self.songs.remove(song)
+
+    def delete_album(self):
+        self.delete()
+
     def __str__(self):
         return self.title
 

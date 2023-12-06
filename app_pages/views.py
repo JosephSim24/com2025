@@ -41,14 +41,6 @@ def recommend_page(request):
     #renders the recommend a friend page for that album
     return render(request, 'app_pages/recommend_page.html', context)
 
-# def add_song(self, song_id):
-#     song = Song.objects.get(pk=song_id)
-#     song.albums.add(self)
-
-# def remove_song(self, song_id):
-#     song = Song.objects.get(pk=song_id)
-#     song.albums.remove(self)
-
 def email_form(request):
     if request.method == 'POST':
         form = EmailForm(request.POST)
