@@ -40,9 +40,6 @@ class Album(models.Model):
     def remove_song(self, song):
         self.songs.remove(song)
 
-    def delete_album(self):
-        self.delete()
-
     def __str__(self):
         return self.title
 

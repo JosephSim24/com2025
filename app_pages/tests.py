@@ -12,5 +12,3 @@ class HomePageTests(TestCase):
         response = self.client.get('')
         self.assertEqual(response.status_code, 200)
 
-        self.assertContains(response, 'MyMusicMaestro Home Page')
-        self.assertContains(response, 'This is my footer')

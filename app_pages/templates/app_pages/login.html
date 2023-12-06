@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-    <title>Login - MyMusicMaestro</title>
+    <title>{% trans 'Login' %} - MyMusicMaestro</title>
 {% endblock title %}
 
 {% block content %}
@@ -10,16 +11,16 @@
             margin-left:30px;
         }
     </style>
-    <h2>Login</h2>
+    <h2>{% trans 'Login' %}</h2>
     {% if user.is_authenticated %}
-        <h3 style="margin-left:30px">You are already logged in</h3>
-        <h4><a href="/account/">Your account</a></h4>
-        <h4><a href="/albums/">Our albums</a></h4>
+        <h3 style="margin-left:30px">{% trans 'LoggedInMsg' %}</h3>
+        <h4><a href="/account/">{% trans 'YourAccount' %}</a></h4>
+        <h4><a href="/albums/">{% trans 'OurAlbums' %}</a></h4>
     {% else %}
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Login</button>
+        <button type="submit">{% trans 'Login' %}</button>
     {% endif %}
     </form>
     <br>

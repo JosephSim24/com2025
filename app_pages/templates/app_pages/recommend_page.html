@@ -19,22 +19,22 @@
         <h1>Recommend {{album.title}}</h1>
         {% csrf_token %}
         <br>
-        <label for="to">Recipient:</label>
+        <label for="to">{% trans 'Recipient' %}:</label>
         <br>
         <input id="to" type="email" name="to" value="example@example.com">
         <br><br>
 
-        <label for="title">Subject:</label>
+        <label for="title">{% trans 'Subject' %}:</label>
         <br>
         <input id="title" type="text" name="title" value="{% trans 'RecommendEmailSubject' %}">
         <br><br>
 
-        <label for="message">Message:</label>
+        <label for="message">{% trans 'Message' %}:</label>
         <br>
         <textarea id="message" rows="4" cols="20" name="message">{% trans 'RecommendEmailMessage' %} {{album.title}}</textarea>
         <br><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit">{% trans 'Submit' %}</button>
         <br><br>
     </form>
 {% endblock content %}

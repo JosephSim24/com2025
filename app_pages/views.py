@@ -62,3 +62,6 @@ def email_form(request):
     context = {'form': form, 'album': album}
 
     return render(request, 'app_pages/recommend_page.html', context)
+
+def success_page(request):
+    return render(request, 'app_pages/success_page.html', {})

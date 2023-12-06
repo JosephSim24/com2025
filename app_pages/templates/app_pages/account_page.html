@@ -11,21 +11,21 @@
 </style>
 <br>
 {% if user.is_authenticated %}
-    <h2 style="margin-left:30px">You are currently logged in as: {{ user.username }}</h2>
+    <h2 style="margin-left:30px">{% trans 'CurrentLogin' %}: {{ user.username }}</h2>
     <br>
-    <h2 style="margin-left:30px">Your Comments:</h2>
+    <h2 style="margin-left:30px">{% trans 'YourComments' %}:</h2>
     {% for comment in comments %}
         {% if comment.user.user == user %}
-            <h3 style="margin-left:30px">Album: {{ comment.album.title }}</h3>
-            <h4>{{ comment.message }}</h4>
+            <h3 style="margin-left:30px">{% trans 'Album' %}: {{ comment.album.title }}</h3>
+            <h4>{% trans 'Comment' %}: {{ comment.message }}</h4>
             <br>
         {% endif %}
     {% endfor %}
     <br>
-    <h4><a href="{% url 'logout' %}">Logout</a></h4>
+    <h4><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></h4>
     <br>
 {% else %}
-    <h4>You are not logged in</h4>
-    <a href="{% url 'login' %}">Login</a>
+    <h4>{% trans 'NotLoggedIn' %}</h4>
+    <a href="{% url 'login' %}">{% trans 'Login' %}</a>
 {% endif %}
 {% endblock content %}

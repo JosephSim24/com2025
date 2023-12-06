@@ -18,4 +18,6 @@ urlpatterns = [
     path('account/login/', LoginView.as_view(template_name='app_pages/login.html'), name='login'),
     #ex: /account/logout/
     path('account/logout/', LogoutView.as_view(next_page='/'), name='logout'),
+    #ex: /success-email/
+    path('success-email/', views.success_page, name='success_page'),
 ]

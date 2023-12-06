@@ -66,3 +66,21 @@ msgstr "Comments"
 
 msgid "RecommendTitle"
 msgstr "Recommend an Album"
+
+msgid "AddSong"
+msgstr "Add Song to Album"
+
+msgid "RemoveSong"
+msgstr "Remove Song"
+
+msgid "DeleteAlbum"
+msgstr "Delete Album"
+
+msgid "Recommend1"
+msgstr "Like this album? Click"
+
+msgid "Here"
+msgstr "here"
+
+msgid "Recommend2"
+msgstr "to recommend this to a friend"

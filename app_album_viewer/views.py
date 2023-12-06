@@ -20,26 +20,29 @@ def show_album(request, album_id):
     album = get_object_or_404(Album, pk=album_id)
     comments = Comment.objects.filter(album=album)
     songs = Song.objects.filter(albums=album)
+    all_songs = Song.objects.exclude(albums=album)
 
     if request.method == 'POST':
-        if 'delete_album' in request.POST:
-            album.delete()
-            return redirect('app_album_viewer:index')
-
-        form = AddSongForm(request.POST)
+        
+        form = AddSongForm(request.POST, instance=album)
         if form.is_valid():
-            title = form.cleaned_data['title']
-            runtime = form.cleaned_data['runtime']
-            song = Song.objects.create(title=title, runtime=runtime)
-            album.songs.add(song)
-            return redirect('app_album_viewer/show.html', album_id=album_id)
+            song_id = form.cleaned_data['title']
+            song = get_object_or_404(Song, pk=song_id)
+            album.add_song(song)
+            return redirect('app_album_viewer:show_album', album_id=album_id)
 
+    elif 'remove_song' in request.POST:
+        song_id = request.POST['remove_song']
+        song = get_object_or_404(Song, pk=song_id)
+        album.remove_song(song)
+        return redirect('app_album_viewer:show_album', album_id=album_id)
+        
 
     else:
-        form = AddSongForm()
+        form = AddSongForm(instance = album)
 
     #create a dictionary to store the data
-    context = {'album': album, 'comments': comments, 'songs': songs, 'form': form}
+    context = {'album': album, 'comments': comments, 'songs': songs, 'form': form, 'all_songs': all_songs}
     #render the page
     return render(request, 'app_album_viewer/show.html', context)
 
@@ -64,19 +67,11 @@ def new_album(request):
     else:
         return render(request, 'app_album_viewer/new.html', {})
 
-def add_song(request, album_id):
-    album = get_object_or_404(Album, pk=album_id)
-
-    if request.method == 'POST':
-        form = AddSongForm(request.POST, instance=album)
-        if form.is_valid():
-            form.save()
-            return redirect('app_album_viewer/index.html', album_id=album_id)
-    else:
-        form = AddSongForm(instance=album)
-    context = {'form': form, 'album': album}
-
-    return render(request, 'app_album_viewer/add_song.html', context)
+def add_song(request, song_id, album_id):
+    album = get_object_or_404(Album, id=album_id)
+    song = get_object_or_404(Song, id=song_id)
+    album.songs.add(song)
+    return redirect('/albums/{{album_id}}')
 
 def delete_view(request, album_id):
     album = get_object_or_404(Album, id=album_id)

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+<title>{% trans 'SuccessTitle' %} - MyMusicMaestro</title>
+{% endblock title %}
+
+{% block content %}
+    <br>
+    <h2 style="margin-left:30px">{% trans 'EmailSuccess' %}</h2>
+    <br>
+    <p><a href='/albums/' style="margin-left:30px">{% trans 'Back' %}</a></p>
+    <br>
+{% endblock content %}

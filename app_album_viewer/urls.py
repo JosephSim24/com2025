@@ -11,6 +11,6 @@ urlpatterns = [
     path('new/', views.new_album, name='new_album'),
     #ex: /albums/:id/add-song/
     path('<int:album_id>/add-song/', views.add_song, name="add_song"),
-    #
+    #ex: /albums/:id/delete/
     path('<int:album_id>/delete/', views.delete_view, name="delete_view"),
 ]

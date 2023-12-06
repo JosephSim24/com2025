@@ -23,26 +23,50 @@
     </style>
     <body>
         <p><a href='/albums/'>{% trans 'Back' %}</a></p>
-
-        {% if user.is_authenticated %}
-            <h3>Like this album? Click <a href="/recommend-a-friend?album={{ album.id }}">here</a> to recommend this to a friend</h3>
-            <a href="{% url 'delete_view' album.id %}"><input type="button" value="Delete"></a>
-        {% endif %}
         <h1> {{album.title}} </h1>
         <div class="container">
             <img src="/{{album.cover}}" style="width:400px;height:auto;">
             <div class="text-on-right">
-                <h3>{% trans 'Songs' %}:</h3>
-                {% for song in songs %}
-                    <h4> {{ song.title }} - {{ song.format_runtime }}</h4>
-                {% endfor %}
+
+                {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'show_album' album.id %}" id="add-song-form">
+                        {% csrf_token %}
+                        <label for="title" style="margin-left:30px">{% trans 'Title' %}:</label>
+                            <select name="title" id="title">
+                                {% for song in all_songs %}
+                                    <option value="{{song.id}}">{{song.title}}</option>
+                                {% endfor %}
+                            </select>
+                        <br><br>
+                        <button type="submit" style="margin-left:30px">{% trans 'AddSong' %}</button>
+                    </form>
+                
+                    <h3>{% trans 'Songs' %}:</h3>
+                    {% for song in songs %}
+                        <p>{{ song.title }} - {{ song.format_runtime }}
+                            <button type="submit" name="remove_song" value="{{ song.id }}">{% trans 'RemoveSong' %}</button>
+                        </p>
+                    {% endfor %}
+                    <a href="{% url 'delete_view' album.id %}" style="margin-left:30px;"><input type="button" value="{% trans 'DeleteAlbum' %}"></a>
+
+                {% else %}
+                    <h3>{% trans 'Songs' %}:</h3>
+                    {% for song in songs %}
+                        <h4> {{ song.title }} - {{ song.format_runtime }}</h4>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
+
         <h3> {% trans 'By' %} {{album.artist}} </h3>
         <h3>{% trans 'Format' %}: {{album.format}}</h3>
         <h3>{% trans 'Price' %}: £{{album.price}}</h3>
         <h3>{% trans 'ReleaseDate' %}: {{album.release_date}}</h3>
         <h4>{% trans 'Description' %}: {{album.description}}</h4>
+        <br>
+        {% if user.is_authenticated %}
+            <h3>{% trans 'Recommend1' %} <a href="/recommend-a-friend?album={{ album.id }}">{% trans 'Here' %}</a> {% trans 'Recommend2' %}</h3>
+        {% endif %}
         <br><br>
         <h2>{% trans 'Comments' %}</h2>
         <br>
