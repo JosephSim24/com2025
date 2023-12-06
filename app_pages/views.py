@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app_album_viewer.models import Album
+from app_album_viewer.models import *
 from django.shortcuts import get_object_or_404
 
 
@@ -16,8 +16,10 @@ def about_page(request):
     return render(request, 'app_pages/about_page.html', {})
 
 def account_page(request):
+    comments = Comment.objects.all()
+    context = {'comments': comments}
     #render the user's account details
-    return render(request, 'app_pages/account_page.html', {})
+    return render(request, 'app_pages/account_page.html', context)
 
 def login_page(request):
     #render the login page

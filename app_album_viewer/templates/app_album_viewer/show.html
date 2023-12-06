@@ -33,7 +33,7 @@
             <div class="text-on-right">
                 <h3>{% trans 'Songs' %}:</h3>
                 {% for song in songs %}
-                    <h4> {{ song.title }} - {{ song.runtime }}s</h4>
+                    <h4> {{ song.title }} - {{ song.format_runtime }}</h4>
                 {% endfor %}
             </div>
         </div>

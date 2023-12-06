@@ -5,11 +5,22 @@
 {% endblock title %}
 
 {% block content %}
-    <br>
+    <style>
+        h2, form, h4 {
+            margin-left:30px;
+        }
+    </style>
     <h2>Login</h2>
+    {% if user.is_authenticated %}
+        <h3 style="margin-left:30px">You are already logged in</h3>
+        <h4><a href="/account/">Your account</a></h4>
+        <h4><a href="/albums/">Our albums</a></h4>
+    {% else %}
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Login</button>
+    {% endif %}
     </form>
+    <br>
 {% endblock content %}

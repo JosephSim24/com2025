@@ -75,3 +75,9 @@ msgstr "Rap"
 
 msgid "Artist"
 msgstr "Artist"
+
+msgid "HomeLC"
+msgstr "Home"
+
+msgid "Login"
+msgstr "Login"

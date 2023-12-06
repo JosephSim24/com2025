@@ -6,10 +6,25 @@
 {% endblock title %}
 
 {% block content %}
+<style>
+    h1, h4 {margin-left:30px;}
+</style>
+<br>
 {% if user.is_authenticated %}
-    <h4>Hi {{ user.username }}</h4>
+    <h3 style="margin-left:30px">You are currently logged in as {{ user.username }}</h3>
+    <h4>Email: {{ user.email }}</h4>
     <br>
-    <a href="{% url 'logout' %}">Logout</a>
+    <h3 style="margin-left:30px">Your Comments:</h3>
+    {% for comment in comments %}
+        {% if comment.user.user == user %}
+            <h3 style="margin-left:30px">Album: {{ comment.album.title }}</h3>
+            <h4>{{ comment.message }}</h4>
+            <br>
+        {% endif %}
+    {% endfor %}
+    <br>
+    <h4><a href="{% url 'logout' %}">Logout</a></h4>
+    <br>
 {% else %}
     <h4>You are not logged in</h4>
     <a href="{% url 'login' %}">Login</a>

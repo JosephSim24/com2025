@@ -43,6 +43,12 @@ class Song(models.Model):
     runtime = models.PositiveIntegerField()
     albums = models.ManyToManyField(Album, related_name='songs')
 
+    def format_runtime(self):
+        mins = self.runtime // 60
+        secs = self.runtime % 60
+        format_runtime = "{:02d}".format(secs)
+        return f"{mins}:{format_runtime}"
+
     def __str__(self):
         return self.title
 
